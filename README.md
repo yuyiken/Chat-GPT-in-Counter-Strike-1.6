@@ -1,43 +1,42 @@
-# LogApiWebServerNode
+# Chat-GPT-in-Counter-Strike-1.6
 
-This is a small Node.js application that serves as a web server to handle events from a Counter-Strike 1.6 server using the LogAPI. The application verifies API requests using a token and dynamically calls methods based on the received event type. The results are returned as JSON responses.
+This is a small Node.js application that serves as a web server to handle ClientSay event for a Counter-Strike 1.6 server using the LogAPI. The application verifies API requests using a token
+to send Chat GPT Requests.
 
 ## Features
 
-- Handles various server and client events from a CS 1.6 server.
+- Handles ClientSay server event and answers 
+- Uses OpenAI module and chat completions.
 - Validates requests using an API token.
-- Dynamically calls event methods and returns the results as JSON.
-
-<details>
-  <summary>Example Result</summary>
-
-  ![Example Result](https://raw.githubusercontent.com/yuyiken/LogApiWebServerNode/main/Example%20result.png)
-
-</details>
 
 ## Installation
+1. Install LogApi:
+    [LogAPI](https://github.com/SmileYzn/LogApi)
 
-1. Clone the repository:
+2. Clone the repository:
     ```bash
-    git clone https://github.com/yuyiken/LogApiWebServerNode.git
+    git clone https://github.com/yuyiken/Chat-GPT-in-Counter-Strike-1.6.git
     ```
-2. Navigate to the project directory:
+3. Navigate to the project directory:
     ```bash
-    cd LogApiWebServerNode
+    cd Chat-GPT-in-Counter-Strike-1.6
     ```
-3. Install the dependencies:
+4. Install the dependencies:
     ```bash
     npm install
     ```
 
 ## Usage
 
-1. Update the `API_TOKEN` in `index.js` with your actual token.
+1. Add the `API_TOKEN` and `OPENAI_API_KEY` in `.env` with your actual tokens.
 2. Start the server:
     ```bash
     node index.js
     ```
 3. The server will run on port `4000` by default. You can send POST requests to `/api` with the appropriate event data.
+4. Add in your logapi.cfg the address and your api token.
+5. Type `/ "your request going after slash and space"`
+6. Enjoy.
 
 ## Credits
 
