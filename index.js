@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 const API_TOKEN = process.env.API_TOKEN || 'YOUR_API_TOKEN_CVAR';
 
 // Route to handle events
-app.post('/api', (req, res) => {
+app.post('/api', async (req, res) => {
     // Verify the authorization token
     const authHeader = req.headers['authorization'];
     
@@ -22,7 +22,7 @@ app.post('/api', (req, res) => {
     if (token === API_TOKEN) {
         // Instantiate the LogAPI class and handle the event
         const logApi = new LogAPI();
-        const result = logApi.OnEvent(req.body);
+        const result = await logApi.OnEvent(req.body);
 
         console.log("-----------------------REQ------------------");
         console.log(req.body);

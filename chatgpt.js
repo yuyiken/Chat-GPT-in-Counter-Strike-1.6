@@ -12,6 +12,7 @@ async function chat(msg, obj) {
     let result;
 
     try{
+        //all chat completion parameters can get from https://platform.openai.com/docs/api-reference/chat
         const chatCompletion = await client.chat.completions.create({
             messages: [{ role: 'user', content: `${preChatMsg} ${msg}` }],
             model: 'gpt-4o-mini',   //choose your model from https://platform.openai.com/docs/models
