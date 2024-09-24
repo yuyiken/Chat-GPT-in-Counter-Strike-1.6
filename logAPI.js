@@ -92,27 +92,6 @@ class LogAPI {
         return null;
     }
     
-    /* 
-    ClientPutInServer(Event, Server, Player) {
-        // Prepare the response
-        const result = {};
-
-        // Print Chat
-        result["PrintChat"] = {
-            // Entity index (0) sends message to all players
-            EntityId: 0,
-
-            // The message string
-            Message: `${Player.Name} entered in server. With SteamID ${Player.Auth}. Game will restart in ^35^1 seconds...`
-        };
-
-        // Return server command to HLDS
-        result['ServerCommand'] = "sv_restart 5";
-
-        // Return result to the API
-        return result;
-    }
-    */
     /**
      * Method to handle the ClientDisconnect event
      * @param {string} Event - Event name.

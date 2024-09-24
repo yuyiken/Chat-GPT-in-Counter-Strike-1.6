@@ -8,11 +8,13 @@ const client = new OpenAI();
 
 async function chat(msg, obj) {
 
-    const preChatMsg = `Con estos datos puedes contestar a cualquier pregunta que te hagan ${JSON.stringify(obj)} exceptuando ips de usuarios, la respuestas no pueden ser de mas de 150 caracteres, la pregunta que te hago es la siguiente :`
+  //To add data from game, you can add this obj or not. And ofc limit the answer or make multilane answer (Actual not avaiable since you are sending only 1 resp).
+
+    const preChatMsg = `${JSON.stringify(obj)} Then answer cannot be more than 150 characters, the question is :`
+
     let result;
 
     try{
-        //all chat completion parameters can get from https://platform.openai.com/docs/api-reference/chat
         const chatCompletion = await client.chat.completions.create({
             messages: [{ role: 'user', content: `${preChatMsg} ${msg}` }],
             model: 'gpt-4o-mini',   //choose your model from https://platform.openai.com/docs/models
@@ -21,6 +23,7 @@ async function chat(msg, obj) {
         //console.log(chatCompletion);
         result = chatCompletion.choices[0].message.content
     }
+    
     catch(e){
       console.log(e);
       result = 'Something gone wrong, check console logs'
